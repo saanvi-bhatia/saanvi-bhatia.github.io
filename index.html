@@ -19,18 +19,18 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #17181c;
-      --ink: #e6e6ea;
-      --muted: #9a9ca5;
-      --link: #8fb0ff;
+      --paper: #1D211C;
+      --ink: #FCFDFC;
+      --muted: #a9aea6;
+      --link: #a9c1ff;
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #17181c;
-    --ink: #e6e6ea;
-    --muted: #9a9ca5;
-    --link: #8fb0ff;
+    --paper: #1D211C;
+    --ink: #FCFDFC;
+    --muted: #a9aea6;
+    --link: #a9c1ff;
     color-scheme: dark;
   }
   :root {
@@ -357,11 +357,11 @@
     color: var(--ink);
     text-wrap: pretty;
   }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fname { color: #8fb0ff; } }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fname { color: #a9c1ff; } }
   /* Links inside the bullets look like the other links: same blue, underlined. */
   .content > ul a { color: #0645ad; text-decoration: underline; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .content > ul a { color: #8fb0ff; } }
-  :root[data-theme="dark"] .content > ul a { color: #8fb0ff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .content > ul a { color: #a9c1ff; } }
+  :root[data-theme="dark"] .content > ul a { color: #a9c1ff; }
   main { transition: padding-top 0.35s ease; }
   @media (prefers-reduced-motion: reduce) { main { transition: none; } }
   @media (max-width: 760px) {
