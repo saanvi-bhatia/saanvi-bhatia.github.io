@@ -240,7 +240,11 @@
   .album.writing .frame.contain img { object-fit: contain; }
   /* Small series label in the top-left corner of the first cell of each row. */
   .album.writing > .tile { position: relative; }
-  .album.writing .series { position: absolute; top: 10px; left: 12px; font-size: 12px; color: var(--muted); }  /* show the whole illustration on its clear background */
+  .album.writing .series { position: absolute; top: 10px; left: 12px; font-size: 12px; color: var(--muted); }
+  /* Phones: the series label sits on its own line above the picture instead of on top of it. */
+  @media (max-width: 760px) {
+    .album.writing .series { position: static; display: block; align-self: stretch; text-align: left; margin: 2px 0 8px; }
+  }  /* show the whole illustration on its clear background */
   .album.writing > .writing-tile { justify-content: flex-start; }  /* images line up across each row */
   /* Same size as the travel photos (which this grid copies its size from). */
   .album.writing .frame { width: min(80%, var(--write-frame, 180px)); transform: scale(0.85); transform-origin: center bottom; }
