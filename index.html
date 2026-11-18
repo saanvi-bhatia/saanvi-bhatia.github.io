@@ -64,6 +64,11 @@
     gap: clamp(1.5rem, 3vw, 2.5rem);
   }
   .content { flex: 0 1 auto; min-width: 0; }
+  /* Email sits just above the top-right corner of the main photo. */
+  .row { position: relative; }
+  .email { position: absolute; right: 0; bottom: calc(100% + 6px); font-size: 12.5px; color: #0645ad; text-decoration: underline; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .email { color: #a9c1ff; } }
+  :root[data-theme="dark"] .email { color: #a9c1ff; }
   /* The dropdown lists never widen the text column; they wrap inside it. */
   .content details { contain: inline-size; }
   @media (min-width: 1150px) {
@@ -82,7 +87,7 @@
       align-items: flex-start;
       gap: 1.25rem;
     }
-    main { padding-top: 1.5rem; padding-bottom: 2.5rem; }
+    main { padding-top: 2.9rem; padding-bottom: 2.5rem; }
     .content, .portrait { flex: none; }
     .portrait { order: -1; max-height: 34vh; object-fit: cover; }
     .content li, .content details { margin-bottom: 0.45rem; }
@@ -381,6 +386,7 @@
 <main>
   <div class="stack">
   <div class="row">
+  <a class="email" href="mailto:saanvibh@stanford.edu">saanvibh@stanford.edu</a>
   <div class="content">
     <h1>Saanvi Bhatia</h1>
     <ul>
@@ -556,7 +562,7 @@
     function apply() {
       if (window.matchMedia("(max-width: 760px)").matches) return;
       const open = toggles.some(d => d.open);
-      main.style.paddingTop = "clamp(16px, 2.5vh, 40px)"; // fixed spot, so opening a dropdown doesn't move it
+      main.style.paddingTop = "calc(clamp(16px, 2.5vh, 40px) + 26px)";  /* room for the email above the photo */ // fixed spot, so opening a dropdown doesn't move it
     }
 
     toggles.forEach(d => d.addEventListener("toggle", () => {
