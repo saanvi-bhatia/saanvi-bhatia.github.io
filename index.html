@@ -609,8 +609,18 @@
       const even = Math.floor(w / 6) * 6;
       wa.style.width = even + "px";
       wa.style.marginLeft = Math.floor((band.clientWidth - even - 1) / 2) + "px";
+      // Same row height as the photos. If an article's longer text would spill out of its
+      // cell, shrink the article pictures just enough for everything to fit.
       wa.style.gridAutoRows = rowH;
       band.style.setProperty("--mid", rowH);
+      const root = document.documentElement;
+      for (let i = 0; i < 4; i++) {
+        const used = c => { const l = c.lastElementChild; return l ? l.getBoundingClientRect().bottom - c.getBoundingClientRect().top + parseFloat(getComputedStyle(c).paddingBottom) : 0; };
+        const over = Math.max(...[...wa.children].map(used)) - (parseFloat(rowH) - 6);  // keep a little breathing room
+        if (over <= 0) break;
+        const frameW = parseFloat(getComputedStyle(root).getPropertyValue("--write-frame")) || 180;
+        root.style.setProperty("--write-frame", Math.max(90, frameW - over / 0.75 - 2) + "px");
+      }
     }
 
     // Keep every grid line on a whole pixel and put the middle line exactly between the rows.
